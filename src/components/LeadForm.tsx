@@ -13,6 +13,22 @@ export default function LeadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [telefone, setTelefone] = useState("");
+
+  const handleTelefoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, ""); // Keep only numbers
+    if (value.length > 11) value = value.slice(0, 11); // Max 11 digits
+
+    // Format: (16) 99168-3261
+    if (value.length > 2) {
+      value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+    }
+    if (value.length > 10) {
+      value = `${value.slice(0, 10)}-${value.slice(10)}`;
+    }
+    
+    setTelefone(value);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,15 +38,18 @@ export default function LeadForm() {
     const formData = new FormData(e.currentTarget);
     const nome = formData.get("nome") as string;
     const email = formData.get("email") as string;
-    const telefone = formData.get("telefone") as string;
+    const telefoneRaw = formData.get("telefone") as string;
     const mensagem = formData.get("mensagem") as string;
+
+    // Remove any non-digit character before sending if necessary
+    // But sending formatted is fine since Edge function cleans it too.
 
     try {
       const { error: fnError } = await supabase.functions.invoke('notify-lead', {
         body: {
           nome,
           email,
-          telefone,
+          telefone: telefoneRaw,
           mensagem,
           destination_email: "dinamicasjb@gmail.com" 
         }
@@ -39,6 +58,7 @@ export default function LeadForm() {
       if (fnError) throw fnError;
       
       setIsSuccess(true);
+      setTelefone(""); // Clear phone state
       (e.target as HTMLFormElement).reset();
       
       setTimeout(() => setIsSuccess(false), 8000);
@@ -154,6 +174,8 @@ export default function LeadForm() {
                       name="telefone"
                       id="telefone"
                       required
+                      value={telefone}
+                      onChange={handleTelefoneChange}
                       className="block w-full rounded-xl border-0 px-4 py-3.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm bg-slate-50 focus:bg-white transition-colors"
                       placeholder="(16) 99999-9999"
                     />
