@@ -32,7 +32,7 @@ export default function LeadForm() {
           email,
           telefone,
           mensagem,
-          destination_email: "jhonathanbr6@gmail.com" 
+          destination_email: "dinamicasjb@gmail.com" 
         }
       });
 
