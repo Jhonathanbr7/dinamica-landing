@@ -51,9 +51,14 @@ export default function Hero() {
               <Zap className="h-6 w-6 text-amber-400" />
               Rapidez e Agilidade
             </div>
-            <div className="flex flex-col items-center gap-2 transition-colors hover:text-white">
+            <div className="flex flex-col items-center gap-2 transition-colors hover:text-white text-center">
               <Laptop className="h-6 w-6 text-[var(--color-dinamica-green)]" />
-              Equipamentos Cuidados
+              <span className="hidden lg:inline">Manutenção de Hardware</span>
+              <span className="lg:hidden flex flex-col items-center leading-tight">
+                <span>Manutenção</span>
+                <span>de</span>
+                <span>Hardware</span>
+              </span>
             </div>
             <div className="flex flex-col items-center gap-2 transition-colors hover:text-white">
               <Code2 className="h-6 w-6 text-emerald-400" />
