@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -76,7 +76,7 @@ export default function Header() {
               Fale Conosco
             </Link>
           </nav>
-          <div className="pt-6 mt-2 border-t border-slate-100">
+          <div className="pt-6 mt-2 border-t border-slate-100 flex flex-col gap-3">
             <Link
               href="#contato"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -84,6 +84,16 @@ export default function Header() {
             >
               Falar com Especialista
             </Link>
+            <a
+              href="https://wa.me/5516999894161?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Din%C3%A2mica%20Inform%C3%A1tica."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-6 py-4 text-base font-bold text-white shadow-md transition-all active:scale-95 hover:bg-emerald-600"
+            >
+              <MessageCircle className="h-5 w-5" />
+              Chamar no WhatsApp
+            </a>
           </div>
         </div>
       </div>
