@@ -33,7 +33,7 @@ export default function LeadForm() {
           email,
           telefone,
           mensagem,
-          destination_email: "dinamicasjb@gmail.com" // Dinâmica's target email
+          destination_email: "jhonathanbr6@gmail.com" // Dinâmica's target email
         }
       });
 
