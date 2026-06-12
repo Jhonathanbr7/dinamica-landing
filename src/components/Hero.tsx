@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="mx-auto max-w-4xl text-center">
           
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-7xl mb-8 leading-[1.1] animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-            A tecnologia trabalhando a seu favor com a <br className="hidden sm:block" />
+            A tecnologia que trabalha a seu favor com a <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-[var(--color-dinamica-green)] to-emerald-300 drop-shadow-sm">
               Dinâmica Informática
             </span>
