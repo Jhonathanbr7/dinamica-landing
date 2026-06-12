@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dinâmica Informática - Soluções em Tecnologia e Burocracia",
+  title: "Dinâmica Informática",
   description: "Serviços digitais, manutenção de computadores, impressões, currículos e auxílio burocrático em um só lugar.",
 };
 
