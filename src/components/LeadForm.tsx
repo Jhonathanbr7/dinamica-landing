@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { Send, Loader2, CheckCircle2 } from "lucide-react";
+import { Send, Loader2, CheckCircle2, MessageSquareText } from "lucide-react";
 
 // Initialize Supabase Client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -26,14 +26,13 @@ export default function LeadForm() {
     const mensagem = formData.get("mensagem") as string;
 
     try {
-      // Calls the Edge Function directly using supabase.functions.invoke
       const { error: fnError } = await supabase.functions.invoke('notify-lead', {
         body: {
           nome,
           email,
           telefone,
           mensagem,
-          destination_email: "jhonathanbr6@gmail.com" // Dinâmica's target email
+          destination_email: "dinamicasjb@gmail.com" 
         }
       });
 
@@ -41,6 +40,8 @@ export default function LeadForm() {
       
       setIsSuccess(true);
       (e.target as HTMLFormElement).reset();
+      
+      setTimeout(() => setIsSuccess(false), 8000);
     } catch (err: any) {
       console.error("Erro ao enviar contato:", err);
       setError("Ocorreu um erro ao enviar sua mensagem. Por favor, tente via WhatsApp.");
@@ -50,117 +51,135 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="contato" className="relative bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Fale com um Especialista
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            Preencha o formulário abaixo e entraremos em contato o mais rápido possível.
-          </p>
-        </div>
-
-        <div className="mx-auto max-w-xl">
-          <form onSubmit={handleSubmit} className="bg-slate-50 p-8 shadow-sm ring-1 ring-slate-200 rounded-2xl">
-            {isSuccess && (
-              <div className="mb-6 flex items-center gap-3 rounded-lg bg-green-50 p-4 text-green-800 ring-1 ring-green-500/20">
-                <CheckCircle2 className="h-6 w-6 text-[var(--color-dinamica-green)]" />
-                <p className="font-medium">Mensagem enviada com sucesso! Entraremos em contato em breve.</p>
-              </div>
-            )}
+    <section id="contato" className="relative bg-white py-24 sm:py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-slate-50/50"></div>
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          
+          <div className="max-w-xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-6">
+              Pronto para facilitar sua rotina com a <span className="text-[var(--color-dinamica-blue)]">Dinâmica Informática</span>?
+            </h2>
+            <p className="text-lg leading-8 text-slate-600 mb-8">
+              Não perca tempo com burocracias ou computadores lentos. Deixe nossos especialistas cuidarem disso para você com rapidez e segurança.
+            </p>
             
-            {error && (
-              <div className="mb-6 rounded-lg bg-red-50 p-4 text-sm text-red-800 ring-1 ring-red-500/20">
-                {error}
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-[var(--color-dinamica-blue)]">
+                  <MessageSquareText className="h-6 w-6" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900">Atendimento Humanizado</h4>
+                  <p className="text-sm text-slate-500">Explicamos tudo sem termos técnicos difíceis.</p>
+                </div>
               </div>
-            )}
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-50 text-[var(--color-dinamica-green)]">
+                  <CheckCircle2 className="h-6 w-6" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900">Orçamento Transparente</h4>
+                  <p className="text-sm text-slate-500">Sem surpresas na hora de pagar pelo serviço.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-            <div className="grid grid-cols-1 gap-y-6">
-              <div>
-                <label htmlFor="nome" className="block text-sm font-semibold leading-6 text-slate-900">
-                  Nome Completo
-                </label>
-                <div className="mt-2">
+          <div className="relative">
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[var(--color-dinamica-blue)] to-[var(--color-dinamica-green)] opacity-20 blur-lg"></div>
+            <form onSubmit={handleSubmit} className="relative bg-white p-8 sm:p-10 shadow-2xl ring-1 ring-slate-100 rounded-3xl">
+              
+              <h3 className="text-2xl font-bold text-slate-900 mb-8">Envie uma mensagem</h3>
+
+              {isSuccess && (
+                <div className="mb-8 flex items-center gap-3 rounded-xl bg-emerald-50 p-5 text-emerald-800 ring-1 ring-emerald-500/30 animate-fade-in-up">
+                  <CheckCircle2 className="h-6 w-6 text-emerald-600" />
+                  <p className="font-medium text-sm">Mensagem enviada com sucesso! Nossa equipe retornará em breve.</p>
+                </div>
+              )}
+              
+              {error && (
+                <div className="mb-8 rounded-xl bg-rose-50 p-5 text-sm text-rose-800 ring-1 ring-rose-500/30">
+                  {error}
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 gap-y-6">
+                <div>
+                  <label htmlFor="nome" className="block text-sm font-semibold text-slate-900 mb-2">Nome Completo</label>
                   <input
                     type="text"
                     name="nome"
                     id="nome"
                     required
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm sm:leading-6"
+                    className="block w-full rounded-xl border-0 px-4 py-3.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm bg-slate-50 focus:bg-white transition-colors"
                     placeholder="João da Silva"
                   />
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold leading-6 text-slate-900">
-                  E-mail
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    required
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm sm:leading-6"
-                    placeholder="joao@exemplo.com"
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">E-mail</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      required
+                      className="block w-full rounded-xl border-0 px-4 py-3.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm bg-slate-50 focus:bg-white transition-colors"
+                      placeholder="joao@exemplo.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="telefone" className="block text-sm font-semibold text-slate-900 mb-2">WhatsApp</label>
+                    <input
+                      type="tel"
+                      name="telefone"
+                      id="telefone"
+                      required
+                      className="block w-full rounded-xl border-0 px-4 py-3.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm bg-slate-50 focus:bg-white transition-colors"
+                      placeholder="(16) 99999-9999"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="telefone" className="block text-sm font-semibold leading-6 text-slate-900">
-                  Telefone / WhatsApp
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="tel"
-                    name="telefone"
-                    id="telefone"
-                    required
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm sm:leading-6"
-                    placeholder="(16) 99999-9999"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="mensagem" className="block text-sm font-semibold leading-6 text-slate-900">
-                  Como podemos ajudar?
-                </label>
-                <div className="mt-2">
+                <div>
+                  <label htmlFor="mensagem" className="block text-sm font-semibold text-slate-900 mb-2">Como podemos ajudar?</label>
                   <textarea
                     name="mensagem"
                     id="mensagem"
                     rows={4}
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm sm:leading-6"
-                    placeholder="Descreva brevemente o serviço que precisa..."
+                    required
+                    className="block w-full rounded-xl border-0 px-4 py-3.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-dinamica-blue)] sm:text-sm bg-slate-50 focus:bg-white transition-colors resize-none"
+                    placeholder="Conte-nos o que você precisa..."
                   />
                 </div>
               </div>
-            </div>
 
-            <div className="mt-8">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="flex w-full items-center justify-center gap-2 rounded-md bg-[var(--color-dinamica-blue)] px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-dinamica-blue)] disabled:opacity-70"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    Enviando...
-                  </>
-                ) : (
-                  <>
-                    <Send className="h-5 w-5" />
-                    Enviar Mensagem
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
+              <div className="mt-8">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--color-dinamica-blue)] to-blue-700 px-4 py-4 text-sm font-bold text-white shadow-md transition-all hover:scale-[1.02] hover:shadow-lg disabled:opacity-70 disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-[var(--color-dinamica-blue)] focus:ring-offset-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                      Enviando sua solicitação...
+                    </>
+                  ) : (
+                    <>
+                      Enviar Solicitação de Atendimento
+                      <Send className="h-4 w-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+          
         </div>
       </div>
     </section>
