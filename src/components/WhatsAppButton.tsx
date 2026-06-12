@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function WhatsAppButton() {
   // Número da Dinâmica
-  const phone = "5516993722882";
+  const phone = "5516999894161";
   const message = "Olá! Gostaria de saber mais sobre os serviços da Dinâmica Informática.";
   const encodedMessage = encodeURIComponent(message);
   

@@ -12,14 +12,6 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         <div className="mx-auto max-w-4xl text-center">
           
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-200 mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(37,99,235,0.15)] animate-fade-in-up">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-dinamica-green)] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-dinamica-green)]"></span>
-            </span>
-            Excelência em Soluções Tecnológicas
-          </div>
-          
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-7xl mb-8 leading-[1.1] animate-fade-in-up" style={{ animationDelay: "100ms" }}>
             A revolução digital da sua rotina com a <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-[var(--color-dinamica-green)] to-emerald-300 drop-shadow-sm">
