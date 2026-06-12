@@ -3,7 +3,7 @@ import { ArrowRight, ShieldCheck, Zap, Laptop, Code2 } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#0A0F1C] pt-24 pb-32 lg:pt-40 lg:pb-40">
+    <section className="relative overflow-hidden bg-[#0A0F1C] pt-12 pb-24 lg:pt-40 lg:pb-40">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[var(--color-dinamica-blue)] opacity-30 blur-[120px] rounded-full pointer-events-none"></div>
@@ -13,14 +13,14 @@ export default function Hero() {
         <div className="mx-auto max-w-4xl text-center">
           
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-7xl mb-8 leading-[1.1] animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-            A revolução digital da sua rotina com a <br className="hidden sm:block" />
+            A tecnologia trabalhando a seu favor com a <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-[var(--color-dinamica-green)] to-emerald-300 drop-shadow-sm">
               Dinâmica Informática
             </span>
           </h1>
           
           <p className="mt-6 text-xl leading-8 text-slate-300 mb-12 max-w-3xl mx-auto font-light animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-            Descomplicamos o mundo digital para você e sua empresa. Desde manutenções de hardware até a resolução rápida de problemas burocráticos e desenvolvimento de softwares sob medida.
+            Resolvemos problemas digitais e burocráticos para você não perder tempo. Da manutenção do seu computador à criação do seu site.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
