@@ -14,19 +14,15 @@ export default function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         
         {/* Logo and Brand */}
-        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80 z-50">
-          <div className="relative h-12 w-16 overflow-hidden rounded-xl bg-white">
+        <Link href="/" className="flex items-center transition-opacity hover:opacity-80 z-50">
+          <div className="relative h-14 w-48 sm:h-16 sm:w-60 overflow-hidden rounded-xl bg-white">
             <Image 
               src="/logo_nova.png" 
               alt="Logo Dinâmica" 
               fill
-              className="object-contain object-center scale-[1.15]"
+              className="object-contain object-center"
               priority
             />
-          </div>
-          <div className="flex flex-col text-left">
-            <span className="text-[var(--color-dinamica-blue)] font-extrabold text-lg leading-none uppercase tracking-tight">Dinâmica</span>
-            <span className="text-[var(--color-dinamica-blue)] font-extrabold text-lg leading-none uppercase tracking-tight mt-0.5">Informática</span>
           </div>
         </Link>
         
