@@ -1,11 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <header className="hidden md:block sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md transition-all">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md transition-all">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
+        
+        {/* Logo and Brand */}
+        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80 z-50">
           <div className="relative h-12 w-16">
             <Image 
               src="/logo.jpg" 
@@ -17,9 +25,11 @@ export default function Header() {
           </div>
           <div className="flex flex-col text-left">
             <span className="text-[var(--color-dinamica-blue)] font-extrabold text-lg leading-none uppercase tracking-tight">Dinâmica</span>
-            <span className="text-[var(--color-dinamica-blue)] font-semibold text-sm leading-none tracking-widest mt-1">Informática</span>
+            <span className="text-[var(--color-dinamica-blue)] font-extrabold text-lg leading-none uppercase tracking-tight mt-0.5">Informática</span>
           </div>
         </Link>
+        
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex gap-6 text-sm font-medium text-slate-600">
             <Link href="#servicos" className="hover:text-[var(--color-dinamica-blue)] transition-colors">Serviços</Link>
@@ -31,6 +41,50 @@ export default function Header() {
           >
             Falar com Especialista
           </Link>
+        </div>
+
+        {/* Mobile Menu Toggle Button */}
+        <button
+          className="md:hidden flex items-center justify-center p-2 text-[var(--color-dinamica-blue)] z-50"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-2xl transition-all duration-300 origin-top ${
+          isMobileMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col px-6 py-8 gap-6">
+          <nav className="flex flex-col gap-6 text-lg font-bold text-slate-700">
+            <Link 
+              href="#servicos" 
+              className="hover:text-[var(--color-dinamica-blue)] transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Nossos Serviços
+            </Link>
+            <Link 
+              href="#contato" 
+              className="hover:text-[var(--color-dinamica-blue)] transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Fale Conosco
+            </Link>
+          </nav>
+          <div className="pt-6 mt-2 border-t border-slate-100">
+            <Link
+              href="#contato"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex w-full justify-center rounded-xl bg-[var(--color-dinamica-blue)] px-6 py-4 text-base font-bold text-white shadow-md transition-all active:scale-95"
+            >
+              Falar com Especialista
+            </Link>
+          </div>
         </div>
       </div>
     </header>
