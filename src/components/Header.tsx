@@ -6,14 +6,18 @@ export default function Header() {
     <header className="hidden md:block sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md transition-all">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
-          <div className="relative h-12 w-48">
+          <div className="relative h-12 w-16">
             <Image 
               src="/logo.jpg" 
-              alt="Dinâmica Informática" 
+              alt="Logo Dinâmica" 
               fill
               className="object-contain object-left"
               priority
             />
+          </div>
+          <div className="flex flex-col text-left">
+            <span className="text-[var(--color-dinamica-blue)] font-extrabold text-lg leading-none uppercase tracking-tight">Dinâmica</span>
+            <span className="text-[var(--color-dinamica-blue)] font-semibold text-sm leading-none tracking-widest mt-1">Informática</span>
           </div>
         </Link>
         <div className="hidden md:flex items-center gap-8">
