@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { Send, Loader2, CheckCircle2, MessageSquareText, MapPin } from "lucide-react";
+import { Send, Loader2, CheckCircle2, MessageSquareText, MapPin, Phone, Smartphone } from "lucide-react";
 
 // Initialize Supabase Client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -105,11 +105,41 @@ export default function LeadForm() {
                 </div>
               </div>
               <a 
+                href="https://wa.me/5516999894161"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up hover:border-green-200 transition-colors" 
+                style={{ animationDelay: "300ms" }}
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[var(--color-dinamica-green)] group-hover:bg-green-50 transition-colors shrink-0">
+                  <Smartphone className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 group-hover:text-[var(--color-dinamica-green)] transition-colors">WhatsApp</h4>
+                  <p className="text-sm text-slate-500">(16) 99989-4161</p>
+                </div>
+              </a>
+
+              <a 
+                href="tel:+551637284115"
+                className="group flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up hover:border-blue-200 transition-colors" 
+                style={{ animationDelay: "400ms" }}
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[var(--color-dinamica-blue)] group-hover:bg-blue-50 transition-colors shrink-0">
+                  <Phone className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 group-hover:text-[var(--color-dinamica-blue)] transition-colors">Telefone Fixo</h4>
+                  <p className="text-sm text-slate-500">(16) 3728-4115</p>
+                </div>
+              </a>
+
+              <a 
                 href="https://www.google.com/maps/search/?api=1&query=Rua+Marechal+Deodoro%2C+575%2C+Centro+Sao+Joaquim+da+Barra+-+SP"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up hover:border-blue-200 transition-colors" 
-                style={{ animationDelay: "300ms" }}
+                style={{ animationDelay: "500ms" }}
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[var(--color-dinamica-blue)] group-hover:bg-blue-50 transition-colors shrink-0">
                   <MapPin className="h-6 w-6 group-hover:scale-110 transition-transform" />
