@@ -109,14 +109,14 @@ export default function LeadForm() {
                 href="https://wa.me/5516999894161"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up hover:border-green-200 transition-colors" 
+                className="group flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up hover:border-blue-200 transition-colors" 
                 style={{ animationDelay: "300ms" }}
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[var(--color-dinamica-green)] group-hover:bg-green-50 transition-colors shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[var(--color-dinamica-blue)] group-hover:bg-blue-50 transition-colors shrink-0">
                   <WhatsAppIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 group-hover:text-[var(--color-dinamica-green)] transition-colors">WhatsApp</h4>
+                  <h4 className="font-bold text-slate-900 group-hover:text-[var(--color-dinamica-blue)] transition-colors">WhatsApp</h4>
                   <p className="text-sm text-slate-500">(16) 99989-4161</p>
                 </div>
               </a>

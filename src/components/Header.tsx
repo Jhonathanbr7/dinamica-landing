@@ -15,12 +15,12 @@ export default function Header() {
         
         {/* Logo and Brand */}
         <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80 z-50">
-          <div className="relative h-12 w-16">
+          <div className="relative h-12 w-16 overflow-hidden rounded-xl bg-white">
             <Image 
               src="/logo.jpg" 
               alt="Logo Dinâmica" 
               fill
-              className="object-contain object-left rounded-xl"
+              className="object-contain object-center scale-[1.15]"
               priority
             />
           </div>

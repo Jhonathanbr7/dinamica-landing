@@ -30,7 +30,7 @@ export default function Footer() {
               className="group flex flex-col md:flex-row items-center md:items-start gap-2 text-sm leading-5 text-slate-500 hover:text-[var(--color-dinamica-blue)] transition-colors text-center md:text-left"
             >
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 group-hover:bg-blue-50 transition-colors shrink-0">
-                <MapPin className="h-4 w-4 text-[var(--color-dinamica-green)] group-hover:scale-110 transition-transform" />
+                <MapPin className="h-4 w-4 text-[var(--color-dinamica-blue)] group-hover:scale-110 transition-transform" />
               </div>
               <span className="mt-1.5">
                 Rua Marechal Deodoro, 575, Centro <br className="md:hidden" /> 
@@ -42,10 +42,10 @@ export default function Footer() {
               href="https://wa.me/5516999894161"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col md:flex-row items-center md:items-start gap-2 text-sm leading-5 text-slate-500 hover:text-[var(--color-dinamica-green)] transition-colors text-center md:text-left"
+              className="group flex flex-col md:flex-row items-center md:items-start gap-2 text-sm leading-5 text-slate-500 hover:text-[var(--color-dinamica-blue)] transition-colors text-center md:text-left"
             >
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 group-hover:bg-green-50 transition-colors shrink-0">
-                <WhatsAppIcon className="h-4 w-4 text-[var(--color-dinamica-green)] group-hover:scale-110 transition-transform" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 group-hover:bg-blue-50 transition-colors shrink-0">
+                <WhatsAppIcon className="h-4 w-4 text-[var(--color-dinamica-blue)] group-hover:scale-110 transition-transform" />
               </div>
               <span className="mt-1.5">WhatsApp: (16) 99989-4161</span>
             </a>
