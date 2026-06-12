@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { Send, Loader2, CheckCircle2, MessageSquareText } from "lucide-react";
+import { Send, Loader2, CheckCircle2, MessageSquareText, MapPin } from "lucide-react";
 
 // Initialize Supabase Client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -66,7 +66,7 @@ export default function LeadForm() {
             </p>
             
             <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up" style={{ animationDelay: "100ms" }}>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-[var(--color-dinamica-blue)]">
                   <MessageSquareText className="h-6 w-6" />
                 </div>
@@ -75,7 +75,7 @@ export default function LeadForm() {
                   <p className="text-sm text-slate-500">Explicamos tudo sem termos técnicos difíceis.</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up" style={{ animationDelay: "200ms" }}>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-50 text-[var(--color-dinamica-green)]">
                   <CheckCircle2 className="h-6 w-6" />
                 </div>
@@ -84,6 +84,21 @@ export default function LeadForm() {
                   <p className="text-sm text-slate-500">Sem surpresas na hora de pagar pelo serviço.</p>
                 </div>
               </div>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Rua+Marechal+Deodoro%2C+575%2C+Centro+Sao+Joaquim+da+Barra+-+SP"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up hover:border-blue-200 transition-colors" 
+                style={{ animationDelay: "300ms" }}
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[var(--color-dinamica-blue)] group-hover:bg-blue-50 transition-colors shrink-0">
+                  <MapPin className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 group-hover:text-[var(--color-dinamica-blue)] transition-colors">Nossa Localização</h4>
+                  <p className="text-sm text-slate-500">Rua Marechal Deodoro, 575, Centro<br/>São Joaquim da Barra - SP</p>
+                </div>
+              </a>
             </div>
           </div>
 
