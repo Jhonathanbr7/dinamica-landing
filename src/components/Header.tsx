@@ -19,7 +19,7 @@ export default function Header() {
               src="/logo.jpg" 
               alt="Logo Dinâmica" 
               fill
-              className="object-contain object-left"
+              className="object-contain object-left rounded-xl"
               priority
             />
           </div>
