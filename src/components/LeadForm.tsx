@@ -97,7 +97,7 @@ export default function LeadForm() {
                 </div>
               </div>
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-50 text-[var(--color-dinamica-green)]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-[var(--color-dinamica-blue)]">
                   <CheckCircle2 className="h-6 w-6" />
                 </div>
                 <div>
