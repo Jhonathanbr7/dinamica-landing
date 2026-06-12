@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { Send, Loader2, CheckCircle2, MessageSquareText, MapPin, Phone, Smartphone } from "lucide-react";
+import { Send, Loader2, CheckCircle2, MessageSquareText, MapPin, Phone } from "lucide-react";
+import WhatsAppIcon from "./icons/WhatsAppIcon";
 
 // Initialize Supabase Client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -112,7 +113,7 @@ export default function LeadForm() {
                 style={{ animationDelay: "300ms" }}
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[var(--color-dinamica-green)] group-hover:bg-green-50 transition-colors shrink-0">
-                  <Smartphone className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                  <WhatsAppIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 group-hover:text-[var(--color-dinamica-green)] transition-colors">WhatsApp</h4>
